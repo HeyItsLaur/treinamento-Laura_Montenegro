@@ -6,23 +6,23 @@ export const Title = styled.h1`
 `;
 
 export const SideBar = styled.div`
-    width: 12vw;
+    width: 24vh;
     height: 100vh;
-    background-color: #102E4A;
+    background-color: #102e4a;
 `;
 
 export const Header = styled.div`
     width: 100%;
     height: 96px;
-    background-color: #102E4A;
+    background-color: #102e4a;
     border-bottom-style: solid;
-    border-bottom-color: #8D9EC6;
+    border-bottom-color: #8d9ec6;
 `;
 
 export const FeedContainer = styled.div`
-    width: 186vh;
+    width: 120vw;
     height: 100vh;
-    background-color: #102E4A;
+    background-color: #102e4a;
 `;
 export const Body = styled.div`
     display: flex;
@@ -34,5 +34,7 @@ export const NavContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: right;
-    gap: 40px;
+    gap: 16px;
+    padding-top: 8px;
+    margin: 8px;
 `;

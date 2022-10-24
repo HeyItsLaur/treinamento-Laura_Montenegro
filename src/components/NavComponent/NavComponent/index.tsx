@@ -2,14 +2,14 @@ import * as S from './styles';
 
 export type NavComponentProps = {
     title: string;
-    icon: string;
+    img: string;
 };
 
-const Test: React.FC<NavComponentProps> = ({ title }, {icon}) => (
+const NavComponent: React.FC<NavComponentProps> = ({ title, img }) => (
     <S.Container>
-        <S.Image src = {icon}/>
+        <S.Icon src={img} />
         <S.Title>{title}</S.Title>
     </S.Container>
 );
 
-export default Test;
+export default NavComponent;
