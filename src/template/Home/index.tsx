@@ -1,13 +1,23 @@
-import Test from 'components/TestComponent';
+import NavComponent from 'components/NavComponent';
 import * as S from './styles';
 
-const HomeTemplate = () => (
-    <S.Container>
-        <S.Title>
-            Esse template foi criado pela equipe de Research 21.1 para projetos
-            internos da Polijunior.
-        </S.Title>
-        <Test title="Esse componente é um teste" />
-    </S.Container>
-);
+function HomeTemplate() {
+
+    return (
+        <><S.Header>
+        </S.Header><S.Body>
+                <S.SideBar>
+                    <S.Title>
+                        Home
+                    </S.Title>
+                    <S.NavContainer>
+                    </S.NavContainer>
+                </S.SideBar>
+                <S.FeedContainer>
+                </S.FeedContainer>
+            </S.Body></>
+
+    );
+
+}
 export default HomeTemplate;

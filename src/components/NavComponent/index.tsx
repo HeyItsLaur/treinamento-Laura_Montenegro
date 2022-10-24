@@ -4,10 +4,10 @@ export type TestProps = {
     title: string;
 };
 
-const Test: React.FC<TestProps> = ({ title }) => (
+const NavComponent: React.FC<TestProps> = ({ title }) => (
     <S.Wrapper>
         <p>{title}</p>
     </S.Wrapper>
 );
 
-export default Test;
+export default NavComponent;
