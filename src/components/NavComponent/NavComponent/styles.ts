@@ -14,6 +14,8 @@ export const Container = styled.div`
 export const Title = styled.span`
     font-size: 24px;
     font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    color: #102e4a;
 `;
 
 export const Icon = styled.img`

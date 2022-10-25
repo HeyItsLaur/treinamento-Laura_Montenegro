@@ -1,11 +1,24 @@
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import NavComponent from 'components/NavComponent/NavComponent';
 import PostComponent from 'components/NavComponent/PostComponent'
 import * as S from './styles';
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+</style>
 
-function HomeTemplate() {
+function HomeTemplate(): JSX.Element {
     const [texto, setTexto] = useState('');
     const [titulo, setTitulo] = useState('');
+    const [cCount, setCCount] = useState(0);
+    const [countColor, setCountColor] = useState("#102e4a")
+
+    function characterMax(){
+        if(cCount >= 140){
+            setCountColor("#FF0000")
+        }else if(cCount <= 140){
+            setCountColor("#102e4a")
+        }
+    }
 
     interface IPost {
         title: string;
@@ -15,13 +28,17 @@ function HomeTemplate() {
     const[postsArray, setPostsArray] = useState<IPost[]>([]);
 
     function handleClick(){
-        setPostsArray([
-            {
-                title: titulo,
-                text: texto
-            },
-            ...postsArray
-        ]);
+        if(cCount <= 140){
+            if(texto != ''){
+                setPostsArray([
+                    {
+                        title: titulo,
+                        text: texto
+                    },
+                    ...postsArray
+                ]);
+            }
+        }
     }
 
     return (
@@ -46,20 +63,24 @@ function HomeTemplate() {
                 <S.FeedContainer>
                     <S.CreatePost>
                         <S.TitleInput onChange={(valor)=>(setTitulo(valor.target.value))}/>
-                        <S.TextInput onChange={(valor)=>(setTexto(valor.target.value))}/>
-                        <S.SendButton onClick={handleClick}>
-                            <S.SendIcon src='/assets/send.svg' />
-                        </S.SendButton>
+                        <S.TextInput onChange={(valor)=>(setTexto(valor.target.value), setCCount(valor.target.value.length), characterMax())}/>
+                        <S.Info>
+                            <S.countContainer style={{backgroundColor: countColor}}>
+                                <S.characterCount>{cCount}/140</S.characterCount>'
+                            </S.countContainer>
+                            <S.SendButton onClick={handleClick}>
+                                <S.SendIcon src='/assets/send.svg' />
+                            </S.SendButton>
+                        </S.Info>
                     </S.CreatePost>
                    {
                        postsArray.map((post)=>(
                             <PostComponent
                              text ={post.text}
-                             selected ={true}
                              title ={post.title}>
                              </PostComponent>
                        ))
-                   }
+                   }    
                 </S.FeedContainer>
             </S.Body>
         </>

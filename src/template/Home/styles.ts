@@ -48,7 +48,7 @@ export const FeedContainer = styled.div`
     justify-items: center;;
     align-items: center;
     width: 120vw;
-    height: 600vh;
+    min-height: 100vh;
     background-color: #102e4a;
     overflow-y: scroll;
 `;
@@ -88,6 +88,8 @@ export const TextInput = styled.input`
     border: solid;
     border-color: #102e4a;
     border-radius: 8px;
+    overflow-x: scroll;
+
 `;
 export const TitleInput = styled.input`
     margin: 8px;
@@ -109,4 +111,26 @@ export const SendButton = styled.button`
 `;
 export const SendIcon = styled.img`
     width: 40px;
+`;
+
+export const countContainer = styled.div`
+    display: flex;
+    align-items: center;
+    border-radius: 16px;
+    padding: 8px;
+    margin-bottom: 12px;
+`;
+
+export const characterCount = styled.h1`
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+    font-style: bold;
+    color: #8d9ec6;
+`;
+
+export const Info = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
 `;
