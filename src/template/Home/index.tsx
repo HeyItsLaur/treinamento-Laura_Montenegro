@@ -29,7 +29,7 @@ function HomeTemplate(): JSX.Element {
 
     function handleClick(){
         if(cCount <= 140){
-            if(texto != ''){
+            if(texto !== ''){
                 setPostsArray([
                     {
                         title: titulo,
@@ -62,8 +62,14 @@ function HomeTemplate(): JSX.Element {
                 </S.SideBar>
                 <S.FeedContainer>
                     <S.CreatePost>
-                        <S.TitleInput onChange={(valor)=>(setTitulo(valor.target.value))}/>
-                        <S.TextInput onChange={(valor)=>(setTexto(valor.target.value), setCCount(valor.target.value.length), characterMax())}/>
+                        <S.TitleContainer>
+                            <S.TitleName>Title:</S.TitleName>
+                            <S.TitleInput onChange={(valor)=>(setTitulo(valor.target.value))}/>
+                        </S.TitleContainer>
+                        <S.TextContainer>
+                            <S.TextName>Piu:</S.TextName>
+                            <S.TextInput onChange={(valor)=>(setTexto(valor.target.value), setCCount(valor.target.value.length), characterMax())}/>
+                        </S.TextContainer>
                         <S.Info>
                             <S.countContainer style={{backgroundColor: countColor}}>
                                 <S.characterCount>{cCount}/140</S.characterCount>'

@@ -30,15 +30,15 @@ export const logo = styled.img`
 `;
 
 export const search = styled.input`
-    width: 400px;
-    height: 56px;
+    width: 320px;
+    height: 40px;
     background-color: #8D9EC6;
     border: none;
     border-radius: 16px;
 `;
 
 export const searchIcon = styled.img`
-    width: 48px;
+    width: 40px;
     margin: 8px;
 `;
 
@@ -79,6 +79,22 @@ export const CreatePost = styled.div`
     margin-top: 16px;
 `;
 
+export const TextContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+`;
+
+export const TextName = styled.h1`
+    font-size: 24px;
+    font-style: bold;
+    font-family: 'Poppins', sans-serif;
+    color: #102e4a;
+    margin-top: 8px;
+    margin-left: 12px;
+`;
+
 export const TextInput = styled.input`
     margin: 8px;
     width: 80vh;
@@ -91,6 +107,22 @@ export const TextInput = styled.input`
     overflow-x: scroll;
 
 `;
+
+export const TitleContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+`;
+
+export const TitleName = styled.h1`
+    font-size: 24px;
+    font-style: bold;
+    font-family: 'Poppins', sans-serif;
+    color: #102e4a;
+    margin-top: 8px;
+`;
+
 export const TitleInput = styled.input`
     margin: 8px;
     margin-top: 24px;

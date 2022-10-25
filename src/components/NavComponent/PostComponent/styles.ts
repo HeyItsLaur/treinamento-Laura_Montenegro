@@ -6,7 +6,6 @@ interface SelectedProps{
 
 export const PostContainer = styled.div`
     width: 180vh;
-    height: 274px;
     background-color: #102E4A;
     display: flex;
     flex-direction: column;
@@ -48,6 +47,7 @@ export const profileInfo = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin: 8px;
 
 `;
 
