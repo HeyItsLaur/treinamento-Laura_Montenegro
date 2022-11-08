@@ -1,7 +1,6 @@
 
 import * as S from './styles';
 import { useState } from 'react';
-import { setUncaughtExceptionCaptureCallback } from 'process';
 
 export type PostProps = {
     text: string;

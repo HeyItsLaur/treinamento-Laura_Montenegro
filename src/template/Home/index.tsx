@@ -1,17 +1,32 @@
-import { FormEvent, useState } from 'react';
+import { useEffect, useState } from 'react';
 import NavComponent from 'components/NavComponent/NavComponent';
 import PostComponent from 'components/NavComponent/PostComponent'
 import * as S from './styles';
-<style>
+import PiuServices from 'services/PiuServices';
+import { Piu } from 'interfaces/piu';
+{/* <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-</style>
+</style> */}
 
 function HomeTemplate(): JSX.Element {
+
+    const [piusArray, setPiusArray] = useState<Piu[]>([]);
+
+    
     const [texto, setTexto] = useState('');
     const [titulo, setTitulo] = useState('');
     const [cCount, setCCount] = useState(0);
     const [countColor, setCountColor] = useState("#102e4a")
-
+    
+    useEffect(() => {
+        const getPiusFunction = async () => {
+            const response = await PiuServices.getPius();
+            console.log(response);
+            setPiusArray(response);
+        };
+        getPiusFunction();
+    }, []);
+    
     function characterMax(){
         if(cCount >= 140){
             setCountColor("#FF0000")

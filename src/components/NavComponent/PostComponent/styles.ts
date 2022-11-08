@@ -5,16 +5,16 @@ interface SelectedProps{
 }
 
 export const PostContainer = styled.div`
-    width: 180vh;
+    width: 100%;
     background-color: #102E4A;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     margin: 24px;
     border-top: solid;
     border-bottom: solid;
     border-color: #8d9ec6;
+
 `;
 
 export const Text =  styled.p`
@@ -48,7 +48,7 @@ export const profileInfo = styled.div`
     flex-direction: row;
     align-items: center;
     margin: 8px;
-
+    align-self: flex-start;
 `;
 
 export const profilePic = styled.img`
@@ -61,7 +61,6 @@ export const userName = styled.h1`
     font-style: bold;
     font-family: 'Poppins', sans-serif;
     color: #E7DFC6;
-    margin-right: 120vh;
 `;
 
 export const postHeader = styled.div`

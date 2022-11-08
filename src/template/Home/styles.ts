@@ -51,6 +51,7 @@ export const FeedContainer = styled.div`
     min-height: 100vh;
     background-color: #102e4a;
     overflow-y: scroll;
+    padding: 16px;
 `;
 export const Body = styled.div`
     display: flex;
@@ -72,17 +73,20 @@ export const CreatePost = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 120vh;
+    width: 100%;
     height: 200px;
     background-color: #8d9ec6;
     border-radius: 24px; 
     margin-top: 16px;
+    padding: 8px;
+
 `;
 
 export const TextContainer = styled.div`
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: stretch;
+    width:100%;
     justify-content: center;
 `;
 
@@ -97,7 +101,7 @@ export const TextName = styled.h1`
 
 export const TextInput = styled.input`
     margin: 8px;
-    width: 80vh;
+    width: 100%;
     font-size: 16px;
     padding: 8px;
     background-color: #8d9ec6;
@@ -110,6 +114,7 @@ export const TextInput = styled.input`
 
 export const TitleContainer = styled.div`
     display: flex;
+    width: 100%;
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -126,13 +131,14 @@ export const TitleName = styled.h1`
 export const TitleInput = styled.input`
     margin: 8px;
     margin-top: 24px;
-    width: 80vh;
+    width: 100%;
     font-size: 16px;
     padding: 8px;
     background-color: #8d9ec6;
     border: solid;
     border-color: #102e4a;
     border-radius: 8px;
+    
 `;
 
 export const SendButton = styled.button`
