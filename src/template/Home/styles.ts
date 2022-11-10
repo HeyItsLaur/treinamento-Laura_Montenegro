@@ -112,35 +112,6 @@ export const TextInput = styled.input`
 
 `;
 
-export const TitleContainer = styled.div`
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-`;
-
-export const TitleName = styled.h1`
-    font-size: 24px;
-    font-style: bold;
-    font-family: 'Poppins', sans-serif;
-    color: #102e4a;
-    margin-top: 8px;
-`;
-
-export const TitleInput = styled.input`
-    margin: 8px;
-    margin-top: 24px;
-    width: 100%;
-    font-size: 16px;
-    padding: 8px;
-    background-color: #8d9ec6;
-    border: solid;
-    border-color: #102e4a;
-    border-radius: 8px;
-    
-`;
-
 export const SendButton = styled.button`
     background-color: #8d9ec6;
     border: none;

@@ -1,22 +1,18 @@
 import { useEffect, useState } from 'react';
+import PiuServices from 'services/PiuServices';
+import { Piu } from 'interfaces/piu';
 import NavComponent from 'components/NavComponent/NavComponent';
 import PostComponent from 'components/NavComponent/PostComponent'
 import * as S from './styles';
-import PiuServices from 'services/PiuServices';
-import { Piu } from 'interfaces/piu';
-{/* <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-</style> */}
 
 function HomeTemplate(): JSX.Element {
-
-    const [piusArray, setPiusArray] = useState<Piu[]>([]);
-
     
     const [texto, setTexto] = useState('');
-    const [titulo, setTitulo] = useState('');
     const [cCount, setCCount] = useState(0);
-    const [countColor, setCountColor] = useState("#102e4a")
+    const [countColor, setCountColor] = useState("#102e4a");
+    const [reloader, setReloader]= useState(false);
+
+    const [piusArray, setPiusArray] = useState<Piu[]>([]);
     
     useEffect(() => {
         const getPiusFunction = async () => {
@@ -25,7 +21,7 @@ function HomeTemplate(): JSX.Element {
             setPiusArray(response);
         };
         getPiusFunction();
-    }, []);
+    }, [reloader]);
     
     function characterMax(){
         if(cCount >= 140){
@@ -35,23 +31,15 @@ function HomeTemplate(): JSX.Element {
         }
     }
 
-    interface IPost {
-        title: string;
-        text: string;
-    }
-
-    const[postsArray, setPostsArray] = useState<IPost[]>([]);
-
     function handleClick(){
         if(cCount <= 140){
             if(texto !== ''){
-                setPostsArray([
-                    {
-                        title: titulo,
-                        text: texto
-                    },
-                    ...postsArray
-                ]);
+                const postPiusFunction = async () => {
+                    const response = await PiuServices.postPius(texto);
+                    console.log(response);
+                };
+                postPiusFunction();
+                setReloader(!reloader);
             }
         }
     }
@@ -77,10 +65,6 @@ function HomeTemplate(): JSX.Element {
                 </S.SideBar>
                 <S.FeedContainer>
                     <S.CreatePost>
-                        <S.TitleContainer>
-                            <S.TitleName>Title:</S.TitleName>
-                            <S.TitleInput onChange={(valor)=>(setTitulo(valor.target.value))}/>
-                        </S.TitleContainer>
                         <S.TextContainer>
                             <S.TextName>Piu:</S.TextName>
                             <S.TextInput onChange={(valor)=>(setTexto(valor.target.value), setCCount(valor.target.value.length), characterMax())}/>
@@ -95,13 +79,18 @@ function HomeTemplate(): JSX.Element {
                         </S.Info>
                     </S.CreatePost>
                    {
-                       postsArray.map((post)=>(
+                       piusArray.map((pius)=>(
                             <PostComponent
-                             text ={post.text}
-                             title ={post.title}>
-                             </PostComponent>
+                                text={pius.text}
+                                key = {pius.id}
+                                user ={pius.user.username}
+                                photo ={pius.user.avatar}
+                                id={pius.id}
+                                liked={pius.likes}
+                            >
+                            </PostComponent>
                        ))
-                   }    
+                   }
                 </S.FeedContainer>
             </S.Body>
         </>

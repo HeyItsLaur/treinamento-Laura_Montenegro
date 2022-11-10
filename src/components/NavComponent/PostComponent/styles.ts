@@ -4,39 +4,35 @@ interface SelectedProps{
     selected: boolean;
 }
 
-export const PostContainer = styled.div`
+interface BodyProps{
+    deleted: boolean;
+}
+
+export const PostContainer = styled.div<BodyProps>`
     width: 100%;
     background-color: #102E4A;
-    display: flex;
+    display: ${(props: BodyProps)=> props.deleted ? 'none' : 'flex'};
     flex-direction: column;
     align-items: center;
     margin: 24px;
     border-top: solid;
     border-bottom: solid;
     border-color: #8d9ec6;
-
 `;
 
-export const Text =  styled.p`
+export const Text =  styled.div`
     font-size: 24px;
     font-family: 'Poppins', sans-serif;
     color: #E7DFC6;
 `;
 
-export const Title = styled.h1`
-    font-size: 32px;
-    font-family: 'Poppins', sans-serif;
-    font-style: bold;
-    color: #E7DFC6;
-    padding-bottom: 16px;
-
-`;
 
 export const LikeButton = styled.button<SelectedProps>`
     border: none;
     margin: 8px;
     padding: 8px;
     border-radius: 8px;
+    background-color: ${(props: SelectedProps)=> props.selected ? 'red' : '#102E4A'};
 `;
 
 export const likeIcon = styled.img`
