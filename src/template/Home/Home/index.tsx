@@ -9,7 +9,7 @@ function HomeTemplate(): JSX.Element {
     
     const [texto, setTexto] = useState('');
     const [cCount, setCCount] = useState(0);
-    const [countColor, setCountColor] = useState("#102e4a");
+    const [countColor, setCountColor] = useState( "#102e4a" );
     const [reloader, setReloader]= useState(false);
 
     const [piusArray, setPiusArray] = useState<Piu[]>([]);
@@ -23,7 +23,7 @@ function HomeTemplate(): JSX.Element {
         getPiusFunction();
     }, [reloader]);
     
-    function characterMax(){
+    function characterMax() {
         if(cCount >= 140){
             setCountColor("#FF0000")
         }else if(cCount <= 140){
@@ -87,8 +87,7 @@ function HomeTemplate(): JSX.Element {
                                 photo ={pius.user.avatar}
                                 id={pius.id}
                                 liked={pius.likes}
-                            >
-                            </PostComponent>
+                        ></PostComponent>
                        ))
                    }
                 </S.FeedContainer>
